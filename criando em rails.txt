@@ -1,0 +1,93 @@
+passos de https://www.youtube.com/watch?v=cVsdbbW39eM
+
+rails new spacerails
+
+cd spacerails
+
+//Criar base de dados
+
+rails g scaffold Alien name:string age:integer
+rake db:migrate
+rails s
+
+rails g scaffold Planet name:string
+rake db:migrate
+rails s
+
+rails g scaffold Power name:string
+rake db:migrate
+rails s
+
+//Criar o relacionamento Planet - Alien
+rails g migration AddPlanetToAlien planet:references
+rake db:migrate
+rails s
+
+//Dizer que um alien pertence à um planeta
+app > models > alien.rb :
+	adicionar abaixo de "class Alien..." : 
+	belongs_to :planet 
+
+//Criar o campo pra selecionar o planeta no form de alien
+app > views > aliens > _form_html.erb :	
+	add:
+	<div class="field">
+    	<%= form.label :planet %>
+    	<%= collection_select(:alien, :planet_id, Planet.all, :id, :name) %>
+  	</div>
+
+//Add o novo campo em uma white list pra permitir que ele seja salvo
+app > controllers > aliens_controller.rb
+	add em params.requires....(... , :planet_id)
+
+//Adicionar na listagem dos aliens o nome dos seus planetas
+app > views > aliens > index.html.erb
+	Acrescentar 
+		- na <thead> <tr> ... </tr> </thead> o campo : <th>Planet</th>
+		- na <tbody> <tr> ... </tr> </tbody> o campo : <td> <%= alien.planet.name %></td>
+
+// Como um alien pode ter varios poderes e um poder pode pertencer a varios aliens.
+// Criar um novo módulo para definir esse relacionamento.
+
+rails g model AlienPower alien:references power:references
+rake db:migrate
+rails s
+
+//Dizer ao rals que um alien possui diversos poderes através do módulo AlienPower 
+app > models > alien_power.rb
+	adicionar abaixo de "class Alien..." : 
+	belongs_to :alien
+	belongs_to :power
+
+app > models > alien.rb
+	adicionar abaixo de "class Alien..." : 
+	has_many :alien_powers
+	has_many :powers, through: :alien_powers
+
+app > models > power.rb
+	adicionar abaixo de "class Alien..." : 
+	has_many :alien_powers
+	has_many :aliens, through: :alien_powers
+
+//Adicionar os poderes nos formulários de aliens
+app > views > _form.html.erb
+	Acrescentar :
+	<div class="field">
+    	<%= form.label :powers %>
+    	<%= collection_check_boxes(:alien, :power_ids, Power.all, :id, :name) %>
+  	</div>
+
+//add o novo campo numa white list pra permitir que ele seja salvo
+app > controllers > aliens_controller.rb
+	add em params.requires....(... , :power_ids => [])
+
+//Definir uma regra que impessa o campo "nome" vazio :
+app > models > alien.rb
+	validates_presence_of :name
+
+//Aplicar .css
+app > views > layouts > application.html.erb
+	Acrescentar no <body> ... </body> :
+
+	(preencher)
+	colar style.css na pasta app > assets > stylesheets 
