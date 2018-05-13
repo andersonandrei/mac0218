@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @programmer.name
+%p
+  %b Description:
+  = @programmer.description
+%p
+  %b Language:
+  = @programmer.language
+%p
+  %b Expertise lvl:
+  = @programmer.expertise_lvl
+
+= link_to 'Edit', edit_programmer_path(@programmer)
+\|
+= link_to 'Back', programmers_path

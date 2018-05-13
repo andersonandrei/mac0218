@@ -1,0 +1,24 @@
+!!!
+%html
+   %head
+      %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+      %title Code Hub
+      = csrf_meta_tags
+      = stylesheet_link_tag   'application', media: 'all', 'data-turbolinks-track': 'reload'
+      = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+   %body
+      = yield
+
+   %p.navbar-text{align: :right}
+      - if user_signed_in?
+         Entrou com
+         %strong= current_user.email
+         = link_to 'Editar', edit_user_registration_path
+         = link_to 'Sair', destroy_user_session_path, method: :delete
+      - else
+         = link_to 'Entrar', new_user_session_path
+         = link_to 'Cadastrar', new_user_registration_path
+   - if notice
+      %p.notice= notice
+   - if alert
+      %p.alert= alert
