@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Programmer:
+  = @contract.programmer_id
+%p
+  %b Project:
+  = @contract.project_id
+%p
+  %b Contract type:
+  = @contract.contract_type
+%p
+  %b Contract description:
+  = @contract.contract_description
+%p
+  %b Contract duration:
+  = @contract.contract_duration
+%p
+  %b Payment:
+  = @contract.payment
+%p
+  %b Is active:
+  = @contract.is_active
+%p
+  %b Status:
+  = @contract.status
+%p
+  %b Start date:
+  = @contract.start_date
+
+= link_to 'Edit', edit_contract_path(@contract)
+\|
+= link_to 'Back', contracts_path

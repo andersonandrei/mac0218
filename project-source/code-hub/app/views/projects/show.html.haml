@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b Project ID:
+  = @project.id
+%p
+  %b Owner User:
+  = @project.user.email
+%p
+  %b Name:
+  = @project.name
+%p
+  %b Language:
+  = @project.language
+%p
+  %b Description:
+  = @project.description
+%p
+  %b Duration:
+  = @project.duration
+
+= link_to 'Edit', edit_project_path(@project)
+\| 
+= link_to 'Back', projects_path
+\| 
+= link_to 'Create Contract', contracts_path

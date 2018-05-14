@@ -70,6 +70,6 @@ class ProgrammersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def programmer_params
-      params.require(:programmer).permit(:name, :description, :language, :expertise_lvl)
+      params.require(:programmer).permit(:name, :description, :language, :expertise_lvl, :user_id)
     end
 end

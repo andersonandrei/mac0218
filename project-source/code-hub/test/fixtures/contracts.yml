@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  belongs_to: 
+  belongs_to: 
+  contract_type: MyString
+  contract_description: MyString
+  contract_duration: MyString
+  payment: 9.99
+  is_active: false
+  status: MyString
+  start_date: 2018-05-13 21:02:49
+
+two:
+  belongs_to: 
+  belongs_to: 
+  contract_type: MyString
+  contract_description: MyString
+  contract_duration: MyString
+  payment: 9.99
+  is_active: false
+  status: MyString
+  start_date: 2018-05-13 21:02:49

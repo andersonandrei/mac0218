@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513184934) do
+ActiveRecord::Schema.define(version: 20180514000249) do
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer "programmer_id"
+    t.integer "project_id"
+    t.string "contract_type"
+    t.string "contract_description"
+    t.string "contract_duration"
+    t.decimal "payment"
+    t.boolean "is_active"
+    t.string "status"
+    t.datetime "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programmer_id"], name: "index_contracts_on_programmer_id"
+    t.index ["project_id"], name: "index_contracts_on_project_id"
+  end
 
   create_table "installs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +54,17 @@ ActiveRecord::Schema.define(version: 20180513184934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_programmers_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "duration"
+    t.string "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
