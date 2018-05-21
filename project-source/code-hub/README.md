@@ -20,14 +20,17 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
 * Utilização:
   Para utilizar a aplicação basta apenas acessar o site "localhost:3000" para o uso a aplicação em domínio local.
   Ao criar um usuário na tela inicial de login já é possível ver a tela de gerenciamento da aplicação.
+  
   Existem 3 telas de controle dentro da aplicação nesta versão inicial:
     - Your Projects;
     - Your Programmers;
     - Your Contracts;
+  
   Nestas telas é capaz criar e gerenciar apenas os projetos, entradas de programadores e contratos criados pelos usuário atual.
   Nas versões posteriores do projeto pretendemos implementar a visualização dos projetos com contratos abertos e a gerencia de programadores ativos em projetos do usuário.
   
 * Estrutura implementada:
+  - O banco de dados deste projeto está implementado em SQLite, todas as definições de campos e relações das entidades criadas podem ser encontrados na pasta code-hub/db/schema.db.
   - Foram implementadas 4 entidades no projeto:
     - Users: Define um usuário cadastrado no sistema da aplicação.
     - Programmers: Define um programador criado por um usuário. Programadores podem ter contratos de oferecimento de serviços a determinados projetos dentro do sistema.
