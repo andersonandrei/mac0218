@@ -5,6 +5,7 @@ Este README descreve a instalação e uso da aplicação Code-Hub e também cont
 Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponibilzado no PACA da disciplina MAC-0218 do primeiro semestre de 2018, ministrada pelo professor Marco Dimas Gubitoso. Mais detalhes da instalação da versão utilizada do Ruby e das Gems utilizadas podem ser encontradas no tutorial.
 
 * Versão do Ruby: 2.5.0
+* Versão do Rails: 5.1.4
 
 * Dependências do sistema:
   - SQLite v3.23
@@ -14,7 +15,7 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
   Nesta fase inicial do projeto não há nenhuma configuração adicional a ser feita na aplicação.
 
 * Inicialização:
-  Para a inicialização do projeto basta ter o Ruby (2.5.0) instalado na máquina e executar o comando "rails server" dentro da pasta code-hub dentro deste git para que o servidor da aplicação inicialize.
+  Para a inicialização do projeto basta ter o Ruby (2.5.0) e o Rails (5.1.4) instalados na máquina e executar o comando "rails server" dentro da pasta code-hub dentro deste git para que o servidor da aplicação inicialize.
 
 * Utilização:
   Para utilizar a aplicação basta apenas acessar o site "localhost:3000" para o uso a aplicação em domínio local.
