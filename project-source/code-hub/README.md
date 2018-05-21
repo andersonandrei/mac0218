@@ -30,7 +30,7 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
   Nas versões posteriores do projeto pretendemos implementar a visualização dos projetos com contratos abertos e a gerencia de programadores ativos em projetos do usuário.
   
 * Estrutura implementada:
-  - O banco de dados deste projeto está implementado em SQLite, todas as definições de campos e relações das entidades criadas podem ser encontrados na pasta code-hub/db/schema.db.
+  - O banco de dados deste projeto está implementado em SQLite, todas as definições de campos e relações das entidades criadas podem ser encontrados na pasta code-hub/db/schema.rb.
   - Foram implementadas 4 entidades no projeto:
     - Users: Define um usuário cadastrado no sistema da aplicação.
     - Programmers: Define um programador criado por um usuário. Programadores podem ter contratos de oferecimento de serviços a determinados projetos dentro do sistema.
