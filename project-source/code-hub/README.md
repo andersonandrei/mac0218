@@ -26,7 +26,7 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
     - Your Programmers;
     - Your Contracts;
   
-  Nestas telas é capaz criar e gerenciar apenas os projetos, entradas de programadores e contratos criados pelos usuário atual.
+  Nestas telas é capaz criar e gerenciar apenas os projetos, entradas de programadores e contratos criados pelo usuário atual.
   Nas versões posteriores do projeto pretendemos implementar a visualização dos projetos com contratos abertos e a gerencia de programadores ativos em projetos do usuário.
   
 * Estrutura implementada:
