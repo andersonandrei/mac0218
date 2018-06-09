@@ -15,7 +15,7 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
   Nesta fase inicial do projeto não há nenhuma configuração adicional a ser feita na aplicação.
 
 * Inicialização:
-  Para a inicialização do projeto basta ter o Ruby (2.5.0) e o Rails (5.1.4) instalados na máquina e executar o comando "rails server" dentro da pasta code-hub dentro deste git para que o servidor da aplicação inicialize.
+  Para a inicialização do projeto basta ter o Ruby (2.5.0) e o Rails (5.1.4) instalados na máquina e executar os comandos "rake db:migrate", para subir o banco, e "rails server", para subir o servidor web da aplicação, dentro da pasta code-hub dentro deste git para que a aplicação inicialize.
 
 * Utilização:
   Para utilizar a aplicação basta apenas acessar o site "localhost:3000" para o uso a aplicação em domínio local.
