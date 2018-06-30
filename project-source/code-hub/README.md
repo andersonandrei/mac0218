@@ -28,7 +28,6 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
     - Your Contracts;
   
   Nestas telas é capaz criar e gerenciar apenas os projetos, entradas de programadores e contratos criados pelo usuário atual.
-  Nas versões posteriores do projeto pretendemos implementar a visualização dos projetos com contratos abertos e a gerencia de programadores ativos em projetos do usuário.
   
 * Estrutura implementada:
   - O banco de dados deste projeto está implementado em SQLite, todas as definições de campos e relações das entidades criadas podem ser encontrados na pasta code-hub/db/schema.rb.
@@ -41,4 +40,7 @@ Este projeto foi montado utilizando o tutorial "Ruby e Rails no Ubuntu" disponib
 * Módulos de Teste:
   Os testes podem ser encontrados no diretório "spec" presente neste repositório. Todas as funções de criação para os teste pode ser encontrada no arquivo "factories.rb" e todos as definições dos testes podem ser encontrados nos arquivos respectivos a cada módulo dentro do mesmo diretório.
   Para executar os teste basta executar o comando: "bundle exec rspec" para que os 23 testes sejam executados.
+
+* Versão final:
+  O projeto já conta com a gerência e adiministação de todas as entidades relacionadas ao usuário e já pode ser testado nas 3 interfaces citadas nós tópicos anteriores.
   
