@@ -1,10 +1,13 @@
 class ContractsController < ApplicationController
-  before_action :set_contract, only: [:show, :edit, :update, :destroy]
+  before_action :set_contract, only: [:show, :edit, :update, :destroy, :hire_responsys_accept, :hire_responsys_decline]
 
   # GET /contracts
   # GET /contracts.json
   def index
-    @contracts = Contract.joins(:programmer).where(programmers: { user_id:current_user.id } )
+    @contracts1 = Contract.joins(:programmer).where(programmers: { user_id:current_user.id } )
+    @contracts2 = Contract.joins(:project).where(projects: { user_id:current_user.id } )
+    @acceptance_pending_contracts = @contracts1.where(is_active: nil)
+    @accepted_contracts = @contracts1.where(is_active: true)
   end
 
   # GET /contracts/1
@@ -15,16 +18,32 @@ class ContractsController < ApplicationController
   # GET /contracts/new
   def new
     @contract = Contract.new
+    @contract.is_active = nil
   end
 
   # GET /contracts/1/edit
   def edit
   end
 
+  def hire_responsys_accept
+    @contract.is_active = !!@contract.is_active
+    @contract.is_active = true
+    respond_to do |format|
+      if @contract.save
+        format.html { redirect_to @contract, notice: 'Contract was successfully accepted.' }
+        format.json { render :show, status: :created, location: @contract }
+      else
+        format.html { render :new }
+        format.json { render json: @contract.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /contracts
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
+    @contract.is_active = nil
 
     respond_to do |format|
       if @contract.save

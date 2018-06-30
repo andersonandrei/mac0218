@@ -24,6 +24,32 @@
         %td= link_to 'Edit', edit_programmer_path(programmer)
         %td= link_to 'Destroy', programmer, method: :delete, data: { confirm: 'Are you sure?' }
 
+
+%h1 Listing all plataform programmer entries
+
+%table
+  %thead
+    %tr
+      %th Programmer ID
+      %th Name
+      %th Description
+      %th Language
+      %th Expertise lvl
+      %th
+      %th
+      %th
+
+  %tbody
+    - @all_programmer.each do |programmer|
+      %tr
+        %td= programmer.id
+        %td= programmer.name
+        %td= programmer.description
+        %td= programmer.language
+        %td= programmer.expertise_lvl
+        %td= link_to 'Show', programmer
+
 %br
 
 = link_to 'New Programmer', new_programmer_path
+= link_to 'Back to home', send_index_path

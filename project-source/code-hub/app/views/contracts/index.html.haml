@@ -1,4 +1,4 @@
-%h1 Listing contracts
+%h1 Listing contracts you own
 
 %table
   %thead
@@ -17,7 +17,7 @@
       %th
 
   %tbody
-    - @contracts.each do |contract|
+    - @contracts2.each do |contract|
       %tr
         %td= contract.programmer_id
         %td= contract.project_id
@@ -34,4 +34,76 @@
 
 %br
 
+%h1 Listing your pending contracts
+
+%table
+  %thead
+    %tr
+      %th Programmer
+      %th Project
+      %th Contract type
+      %th Contract description
+      %th Contract duration
+      %th Payment
+      %th Is active
+      %th Status
+      %th Start date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @acceptance_pending_contracts.each do |contract|
+      %tr
+        %td= contract.programmer_id
+        %td= contract.project_id
+        %td= contract.contract_type
+        %td= contract.contract_description
+        %td= contract.contract_duration
+        %td= contract.payment
+        %td= contract.is_active
+        %td= contract.status
+        %td= contract.start_date
+        %td= link_to 'Show', contract
+
+        %td= link_to 'Accept', contract, method: :hire_responsys_accept
+        %td= link_to 'Decline', contract, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+%h1 Listing your accepted contracts
+
+%table
+  %thead
+    %tr
+      %th Programmer
+      %th Project
+      %th Contract type
+      %th Contract description
+      %th Contract duration
+      %th Payment
+      %th Is active
+      %th Status
+      %th Start date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @accepted_contracts.each do |contract|
+      %tr
+        %td= contract.programmer_id
+        %td= contract.project_id
+        %td= contract.contract_type
+        %td= contract.contract_description
+        %td= contract.contract_duration
+        %td= contract.payment
+        %td= contract.is_active
+        %td= contract.status
+        %td= contract.start_date
+        %td= link_to 'Show', contract
+
+%br
+
 = link_to 'New Contract', new_contract_path
+= link_to 'Back to home', send_index_path

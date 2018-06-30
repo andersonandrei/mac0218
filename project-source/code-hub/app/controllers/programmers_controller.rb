@@ -5,6 +5,7 @@ class ProgrammersController < ApplicationController
   # GET /programmers.json
   def index
     @programmer = Programmer.where(user:current_user)
+    @all_programmer = ::Programmer.all
   end
 
   # GET /programmers/1

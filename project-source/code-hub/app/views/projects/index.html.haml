@@ -28,4 +28,34 @@
 
 %br
 
+%h1 Listing all created projects
+
+%table
+  %thead
+    %tr
+      %th Project ID
+      %th Owner User
+      %th Name
+      %th Language
+      %th Description
+      %th Duration
+      %th
+      %th
+      %th
+
+  %tbody
+    - @all_projects.each do |project|
+      %tr
+        %td= project.id
+        %td= project.user.email
+        %td= project.name
+        %td= project.language
+        %td= project.description
+        %td= project.duration
+        %td= link_to 'Show', project
+        %td= link_to 'Edit', edit_project_path(project)
+        %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+
 = link_to 'New Project', new_project_path
+= link_to 'Back to home', send_index_path
